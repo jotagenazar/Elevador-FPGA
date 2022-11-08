@@ -1,0 +1,47 @@
+ENTITY moore IS
+	PORT(clk						: IN bit;
+		  reset					: IN bit;
+		  andarDesejado		: IN integer IN RANGE 0 15;
+		  andarAtual			: OUT integer IN RANGE 0 15;
+		  saida					: OUT BIT_VECTOR (4 DOWNTO 0 );
+END moore;
+
+
+ARQUITECTURE elevador OF moore IS
+	TYPE tipoEstados IS (parado, subindo, descendo);
+	SIGNAL estadoAtual: tipoEstados;
+	andarAtual : integer IN RANGE 0 15; 
+	andarAtual <= 0;
+
+	BEGIN
+		PROCESS(clk, reset, andarAtual)
+		BEGIN
+			IF reset = '1' THEN 
+				andarAtual <= 0;
+				estadoAtual <= parado;
+				
+			ELSIF(clk'EVENT AND clk = '1') THEN
+				IF(andarDesejado - andarAtual > 0) THEN
+					estadoAtual <= subindo;
+					andarAtual <= andarAtual + 1;
+					saida <= '10';
+					
+				ELSIF(andarDesejado - andarAtual < 0) THEN
+					estadoAtual <= descendo;
+					andarAtual <= andarAtual - 1;
+					saida <= '01';		
+					
+				ELSE THEN
+					estadoAtual <= parado;
+					saida <= '00';
+				END IF;
+				
+			END IF;
+			
+		END PROCESS;
+		
+	END elevador;
+				
+	
+	
+		  
