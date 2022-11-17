@@ -1,0 +1,73 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "A",
+					"strict" : false
+				},
+				{
+					"name" : "B",
+					"strict" : false
+				},
+				{
+					"name" : "C",
+					"strict" : false
+				},
+				{
+					"name" : "D",
+					"strict" : false
+				},
+				{
+					"name" : "E",
+					"strict" : false
+				},
+				{
+					"name" : "F",
+					"strict" : false
+				},
+				{
+					"name" : "G",
+					"strict" : false
+				},
+				{
+					"name" : "LED_subindo",
+					"strict" : false
+				},
+				{
+					"name" : "LED_descendo",
+					"strict" : false
+				},
+				{
+					"name" : "RESET",
+					"strict" : false
+				},
+				{
+					"name" : "andares[3]",
+					"strict" : false
+				},
+				{
+					"name" : "andares[0]",
+					"strict" : false
+				},
+				{
+					"name" : "andares[1]",
+					"strict" : false
+				},
+				{
+					"name" : "andares[2]",
+					"strict" : false
+				},
+				{
+					"name" : "CLOCK_PINO",
+					"strict" : false
+				},
+				{
+					"name" : "CLOCK_PLACA",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

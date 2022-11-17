@@ -1,0 +1,6 @@
+
+State Machine - |elevador|moore:inst|estadoAtual
+Name estadoAtual.descendo estadoAtual.subindo estadoAtual.parado 
+estadoAtual.parado 0 0 0 
+estadoAtual.subindo 0 1 1 
+estadoAtual.descendo 1 0 1 
