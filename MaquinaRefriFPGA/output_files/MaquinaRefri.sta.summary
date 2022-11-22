@@ -1,0 +1,101 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1100mV 85C Model Setup 'CLOCK_PLACA'
+Slack : -4.474
+TNS   : -35.578
+
+Type  : Slow 1100mV 85C Model Setup 'debouncer:inst2|out_key'
+Slack : -3.172
+TNS   : -29.405
+
+Type  : Slow 1100mV 85C Model Hold 'CLOCK_PLACA'
+Slack : 0.429
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'debouncer:inst2|out_key'
+Slack : 0.926
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'CLOCK_PLACA'
+Slack : -0.538
+TNS   : -14.154
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'debouncer:inst2|out_key'
+Slack : -0.538
+TNS   : -8.862
+
+Type  : Slow 1100mV 0C Model Setup 'CLOCK_PLACA'
+Slack : -4.650
+TNS   : -35.690
+
+Type  : Slow 1100mV 0C Model Setup 'debouncer:inst2|out_key'
+Slack : -3.381
+TNS   : -30.612
+
+Type  : Slow 1100mV 0C Model Hold 'CLOCK_PLACA'
+Slack : 0.441
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'debouncer:inst2|out_key'
+Slack : 0.947
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'CLOCK_PLACA'
+Slack : -0.538
+TNS   : -14.219
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'debouncer:inst2|out_key'
+Slack : -0.538
+TNS   : -8.836
+
+Type  : Fast 1100mV 85C Model Setup 'CLOCK_PLACA'
+Slack : -2.540
+TNS   : -9.436
+
+Type  : Fast 1100mV 85C Model Setup 'debouncer:inst2|out_key'
+Slack : -1.261
+TNS   : -10.819
+
+Type  : Fast 1100mV 85C Model Hold 'CLOCK_PLACA'
+Slack : 0.199
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'debouncer:inst2|out_key'
+Slack : 0.367
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'CLOCK_PLACA'
+Slack : -0.356
+TNS   : -2.013
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'debouncer:inst2|out_key'
+Slack : -0.018
+TNS   : -0.139
+
+Type  : Fast 1100mV 0C Model Setup 'CLOCK_PLACA'
+Slack : -2.188
+TNS   : -7.220
+
+Type  : Fast 1100mV 0C Model Setup 'debouncer:inst2|out_key'
+Slack : -1.094
+TNS   : -9.764
+
+Type  : Fast 1100mV 0C Model Hold 'CLOCK_PLACA'
+Slack : 0.190
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'debouncer:inst2|out_key'
+Slack : 0.339
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'CLOCK_PLACA'
+Slack : -0.354
+TNS   : -2.033
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'debouncer:inst2|out_key'
+Slack : 0.014
+TNS   : 0.000
+
+------------------------------------------------------------
