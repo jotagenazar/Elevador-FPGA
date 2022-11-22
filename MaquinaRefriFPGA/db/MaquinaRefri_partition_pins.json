@@ -1,0 +1,105 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "1a",
+					"strict" : false
+				},
+				{
+					"name" : "1b",
+					"strict" : false
+				},
+				{
+					"name" : "1c",
+					"strict" : false
+				},
+				{
+					"name" : "1d",
+					"strict" : false
+				},
+				{
+					"name" : "1e",
+					"strict" : false
+				},
+				{
+					"name" : "1f",
+					"strict" : false
+				},
+				{
+					"name" : "1g",
+					"strict" : false
+				},
+				{
+					"name" : "2a",
+					"strict" : false
+				},
+				{
+					"name" : "2b",
+					"strict" : false
+				},
+				{
+					"name" : "2c",
+					"strict" : false
+				},
+				{
+					"name" : "2d",
+					"strict" : false
+				},
+				{
+					"name" : "2e",
+					"strict" : false
+				},
+				{
+					"name" : "2f",
+					"strict" : false
+				},
+				{
+					"name" : "2g",
+					"strict" : false
+				},
+				{
+					"name" : "saida[1]",
+					"strict" : false
+				},
+				{
+					"name" : "saida[0]",
+					"strict" : false
+				},
+				{
+					"name" : "moeda[2]",
+					"strict" : false
+				},
+				{
+					"name" : "moeda[1]",
+					"strict" : false
+				},
+				{
+					"name" : "moeda[3]",
+					"strict" : false
+				},
+				{
+					"name" : "moeda[0]",
+					"strict" : false
+				},
+				{
+					"name" : "reset",
+					"strict" : false
+				},
+				{
+					"name" : "botao",
+					"strict" : false
+				},
+				{
+					"name" : "CLOCK_PINO",
+					"strict" : false
+				},
+				{
+					"name" : "CLOCK_PLACA",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
