@@ -1,61 +1,83 @@
 ENTITY mealy IS
 	PORT(clk						: IN bit;
-		  reset					: IN bit; /* reset do programa */
-		  moeda					: IN BIT_VECTOR (3 DOWNTO 0); /* moeda que vai adicionar na máquina */
-		  saida					: OUT BIT_VECTOR (1 DOWNTO 0); /* "10" o refri está sendo liberado, "01" a máquina está devolvendo dinheiro */
-		  botao					: IN bit; /* botao confirma. Se 100 centavos na maquina, libera o refri, senao devolve o dinheiro. */
-		  montante				: BUFFER integer RANGE 0 to 200); /* montante atual dentro da máquina, para acompanhar as somas */
+	
+		  -- reset do programa
+		  reset					: IN bit;
+		  
+		  -- moeda que vai adicionar na máquina 
+		  moeda					: IN BIT_VECTOR (3 DOWNTO 0);
+		  
+		  -- "10" o refri está sendo liberado, "01" a máquina está devolvendo dinheiro
+		  saida					: OUT BIT_VECTOR (1 DOWNTO 0);  
+		  
+		  -- botao confirma. Se 100 centavos na maquina, libera o refri, senao devolve o dinheiro.
+		  botao					: IN bit;
+		  
+		  -- montante atual dentro da máquina, para acompanhar as somas
+		  montante				: BUFFER integer RANGE 0 to 200);
 END mealy;
 
 
 ARCHITECTURE maquinaRefri OF mealy IS
-	TYPE tipoEstados IS (recebeDinheiro, entregaRefri); /* máquina com dois estados: recebeDinheiro e entregaRefri */
-	SIGNAL estadoAtual: tipoEstados; /* acompanhando as transições */
+	-- máquina com dois estados: recebeDinheiro e entregaRefri
+	TYPE tipoEstados IS (recebeDinheiro, entregaRefri);
+	
+	-- acompanhando as transições
+	SIGNAL estadoAtual: tipoEstados; 
+	
 	BEGIN
 
 		PROCESS(clk, reset, montante)
 		BEGIN
-		
-			IF(reset = '1') THEN /* caso reset seja acionado, voltamos para o início, sem nenhuma moeda na maquina */
+			
+			-- caso reset seja acionado, voltamos para o início, sem nenhuma moeda na maquina
+			IF(reset = '1') THEN 
 				montante <= 0;
 				estadoAtual <= recebeDinheiro;
 				saida <= "00";
 			
-			ELSIF(botao = '1') THEN /* caso botao seja acionado, também zeramos as moedas da máquina, porém de duas maneiras diferentes: */
+			-- caso botao seja acionado, também zeramos as moedas da máquina, porém de duas maneiras diferentes
+			ELSIF(botao = '1') THEN
 				montante <= 0;
 				
-				/* 1-) refri não pago */
+				-- 1-) refri não pago
 				IF(estadoAtual = recebeDinheiro) THEN 
 					saida <= "01";	
 					
-				/* 2-) refri pago */
+				-- 2-) refri pago
 				ELSE
 					saida <= "10";
 					
 				END IF;
 				
-			ELSIF(clk'EVENT AND clk = '1') THEN	/* acionando o clock, estamos adicionando alguma moeda na maquina */
+			-- acionando o clock, estamos adicionando alguma moeda na maquina
+			ELSIF(clk'EVENT AND clk = '1') THEN 
 				
 				saida <= "00";
 				estadoAtual <= recebeDinheiro;
 				
-				IF(moeda = "0001") THEN -- 10 CENTAVOS
+				-- 10 CENTAVOS
+				IF(moeda = "0001") THEN
 
-					IF(montante + 10 > 100) THEN /* caso a moeda faça o montante atual ultrapassar o valor do refri, já devolvemos o dinheiro e resetamos o montante */
+					-- caso a moeda ultrapasse o valor do refri, devolvemos o dinheiro e resetamos o montante
+					IF(montante + 10 > 100) THEN
 						saida <= "01";
 						montante <= 0;						
 						
-					ELSIF(montante + 10 < 100) THEN /* caso a moeda não ultrapasse o valor do refri, somamos no montante, aguardando novas moedas */
+					-- caso a moeda não ultrapasse o valor do refri, somamos no montante
+					ELSIF(montante + 10 < 100) THEN
 						montante <= montante + 10;
 					
-					ELSE /* caso a moeda complete o pagamento do refri, transitamos para o novo estado e atualizamos o montante */
+					-- caso a moeda complete o pagamento do refri, transitamos para o novo estado e somamos no montante
+					ELSE
 						estadoAtual <= entregaRefri;
 						montante <= montante + 10;
 						
 					END IF;
 					
-				/* mesma logica das atualizações seguem para todas as moedas, apenas mudando o seu valor */
-				ELSIF(moeda = "0010") THEN	-- 25 CENTAVOS
+				-- mesma logica das atualizações seguem para todas as moedas	
+				-- 25 CENTAVOS
+				ELSIF(moeda = "0010") THEN
 					
 					IF(montante + 25 > 100) THEN
 						saida <= "01";
@@ -70,7 +92,8 @@ ARCHITECTURE maquinaRefri OF mealy IS
 						
 					END IF;
 				
-				ELSIF(moeda = "0100") THEN -- 50 CENTAVOS
+				-- 50 CENTAVOS
+				ELSIF(moeda = "0100") THEN
 					
 					IF(montante + 50 > 100) THEN
 						saida <= "01";
@@ -85,7 +108,8 @@ ARCHITECTURE maquinaRefri OF mealy IS
 						
 					END IF;
 				
-				ELSIF(moeda = "1000") THEN -- 100 CENTAVOS
+				-- 100 CENTAVOS
+				ELSIF(moeda = "1000") THEN
 					
 					IF(montante + 100 > 100) THEN
 						saida <= "01";
