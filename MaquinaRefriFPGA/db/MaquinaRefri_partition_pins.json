@@ -68,7 +68,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "moeda[2]",
+					"name" : "reset",
 					"strict" : false
 				},
 				{
@@ -76,15 +76,15 @@
 					"strict" : false
 				},
 				{
-					"name" : "moeda[3]",
-					"strict" : false
-				},
-				{
 					"name" : "moeda[0]",
 					"strict" : false
 				},
 				{
-					"name" : "reset",
+					"name" : "moeda[3]",
+					"strict" : false
+				},
+				{
+					"name" : "moeda[2]",
 					"strict" : false
 				},
 				{
