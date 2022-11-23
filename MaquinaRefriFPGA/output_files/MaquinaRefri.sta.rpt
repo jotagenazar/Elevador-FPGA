@@ -1,5 +1,5 @@
 Timing Analyzer report for MaquinaRefri
-Tue Nov 22 18:44:20 2022
+Wed Nov 23 16:59:40 2022
 Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 
 
@@ -46,15 +46,17 @@ Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
  38. Signal Integrity Metrics (Fast 1100mv 85c Model)
  39. Setup Transfers
  40. Hold Transfers
- 41. Report TCCS
- 42. Report RSKM
- 43. Unconstrained Paths Summary
- 44. Clock Status Summary
- 45. Unconstrained Input Ports
- 46. Unconstrained Output Ports
+ 41. Recovery Transfers
+ 42. Removal Transfers
+ 43. Report TCCS
+ 44. Report RSKM
+ 45. Unconstrained Paths Summary
+ 46. Clock Status Summary
  47. Unconstrained Input Ports
  48. Unconstrained Output Ports
- 49. Timing Analyzer Messages
+ 49. Unconstrained Input Ports
+ 50. Unconstrained Output Ports
+ 51. Timing Analyzer Messages
 
 
 
@@ -100,14 +102,14 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 4           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 1.08        ;
+; Average used               ; 1.10        ;
 ; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   2.9%      ;
-;     Processor 3            ;   2.8%      ;
-;     Processor 4            ;   2.8%      ;
+;     Processor 2            ;   3.5%      ;
+;     Processor 3            ;   3.4%      ;
+;     Processor 4            ;   3.4%      ;
 +----------------------------+-------------+
 
 
@@ -116,6 +118,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------------------------+
 ; Clock Name              ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets                     ;
 +-------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------------------------+
+; botao                   ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { botao }                   ;
 ; CLOCK_PLACA             ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { CLOCK_PLACA }             ;
 ; debouncer:inst2|out_key ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { debouncer:inst2|out_key } ;
 +-------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------------------------+
@@ -126,8 +129,8 @@ https://fpgasoftware.intel.com/eula.
 +------------+-----------------+-------------------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name              ; Note ;
 +------------+-----------------+-------------------------+------+
-; 182.68 MHz ; 182.68 MHz      ; CLOCK_PLACA             ;      ;
-; 239.69 MHz ; 239.69 MHz      ; debouncer:inst2|out_key ;      ;
+; 167.56 MHz ; 167.56 MHz      ; debouncer:inst2|out_key ;      ;
+; 177.18 MHz ; 177.18 MHz      ; CLOCK_PLACA             ;      ;
 +------------+-----------------+-------------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -143,8 +146,9 @@ HTML report is unavailable in plain text report export.
 +-------------------------+--------+---------------+
 ; Clock                   ; Slack  ; End Point TNS ;
 +-------------------------+--------+---------------+
-; CLOCK_PLACA             ; -4.474 ; -35.578       ;
-; debouncer:inst2|out_key ; -3.172 ; -29.405       ;
+; debouncer:inst2|out_key ; -4.968 ; -49.407       ;
+; CLOCK_PLACA             ; -4.644 ; -38.612       ;
+; botao                   ; -4.313 ; -8.493        ;
 +-------------------------+--------+---------------+
 
 
@@ -153,21 +157,28 @@ HTML report is unavailable in plain text report export.
 +-------------------------+-------+---------------+
 ; Clock                   ; Slack ; End Point TNS ;
 +-------------------------+-------+---------------+
-; CLOCK_PLACA             ; 0.429 ; 0.000         ;
-; debouncer:inst2|out_key ; 0.926 ; 0.000         ;
+; CLOCK_PLACA             ; 0.427 ; 0.000         ;
+; debouncer:inst2|out_key ; 1.068 ; 0.000         ;
+; botao                   ; 1.315 ; 0.000         ;
 +-------------------------+-------+---------------+
 
 
-------------------------------------------
-; Slow 1100mV 85C Model Recovery Summary ;
-------------------------------------------
-No paths to report.
++--------------------------------------------------+
+; Slow 1100mV 85C Model Recovery Summary           ;
++-------------------------+--------+---------------+
+; Clock                   ; Slack  ; End Point TNS ;
++-------------------------+--------+---------------+
+; debouncer:inst2|out_key ; -2.961 ; -27.725       ;
++-------------------------+--------+---------------+
 
 
------------------------------------------
-; Slow 1100mV 85C Model Removal Summary ;
------------------------------------------
-No paths to report.
++-------------------------------------------------+
+; Slow 1100mV 85C Model Removal Summary           ;
++-------------------------+-------+---------------+
+; Clock                   ; Slack ; End Point TNS ;
++-------------------------+-------+---------------+
+; debouncer:inst2|out_key ; 1.795 ; 0.000         ;
++-------------------------+-------+---------------+
 
 
 +---------------------------------------------------+
@@ -175,8 +186,9 @@ No paths to report.
 +-------------------------+--------+----------------+
 ; Clock                   ; Slack  ; End Point TNS  ;
 +-------------------------+--------+----------------+
-; CLOCK_PLACA             ; -0.538 ; -14.154        ;
-; debouncer:inst2|out_key ; -0.538 ; -8.862         ;
+; CLOCK_PLACA             ; -0.538 ; -14.194        ;
+; debouncer:inst2|out_key ; -0.538 ; -9.147         ;
+; botao                   ; 0.314  ; 0.000          ;
 +-------------------------+--------+----------------+
 
 
@@ -191,8 +203,8 @@ No synchronizer chains to report.
 +------------+-----------------+-------------------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name              ; Note ;
 +------------+-----------------+-------------------------+------+
-; 176.99 MHz ; 176.99 MHz      ; CLOCK_PLACA             ;      ;
-; 228.26 MHz ; 228.26 MHz      ; debouncer:inst2|out_key ;      ;
+; 163.72 MHz ; 163.72 MHz      ; debouncer:inst2|out_key ;      ;
+; 172.38 MHz ; 172.38 MHz      ; CLOCK_PLACA             ;      ;
 +------------+-----------------+-------------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -202,8 +214,9 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------------------------+--------+---------------+
 ; Clock                   ; Slack  ; End Point TNS ;
 +-------------------------+--------+---------------+
-; CLOCK_PLACA             ; -4.650 ; -35.690       ;
-; debouncer:inst2|out_key ; -3.381 ; -30.612       ;
+; debouncer:inst2|out_key ; -5.108 ; -50.443       ;
+; CLOCK_PLACA             ; -4.801 ; -37.337       ;
+; botao                   ; -4.090 ; -7.976        ;
 +-------------------------+--------+---------------+
 
 
@@ -212,21 +225,28 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------------------------+-------+---------------+
 ; Clock                   ; Slack ; End Point TNS ;
 +-------------------------+-------+---------------+
-; CLOCK_PLACA             ; 0.441 ; 0.000         ;
-; debouncer:inst2|out_key ; 0.947 ; 0.000         ;
+; CLOCK_PLACA             ; 0.437 ; 0.000         ;
+; botao                   ; 0.970 ; 0.000         ;
+; debouncer:inst2|out_key ; 1.060 ; 0.000         ;
 +-------------------------+-------+---------------+
 
 
------------------------------------------
-; Slow 1100mV 0C Model Recovery Summary ;
------------------------------------------
-No paths to report.
++--------------------------------------------------+
+; Slow 1100mV 0C Model Recovery Summary            ;
++-------------------------+--------+---------------+
+; Clock                   ; Slack  ; End Point TNS ;
++-------------------------+--------+---------------+
+; debouncer:inst2|out_key ; -2.950 ; -27.768       ;
++-------------------------+--------+---------------+
 
 
-----------------------------------------
-; Slow 1100mV 0C Model Removal Summary ;
-----------------------------------------
-No paths to report.
++-------------------------------------------------+
+; Slow 1100mV 0C Model Removal Summary            ;
++-------------------------+-------+---------------+
+; Clock                   ; Slack ; End Point TNS ;
++-------------------------+-------+---------------+
+; debouncer:inst2|out_key ; 1.802 ; 0.000         ;
++-------------------------+-------+---------------+
 
 
 +--------------------------------------------------+
@@ -234,8 +254,9 @@ No paths to report.
 +-------------------------+--------+---------------+
 ; Clock                   ; Slack  ; End Point TNS ;
 +-------------------------+--------+---------------+
-; CLOCK_PLACA             ; -0.538 ; -14.219       ;
-; debouncer:inst2|out_key ; -0.538 ; -8.836        ;
+; CLOCK_PLACA             ; -0.538 ; -14.233       ;
+; debouncer:inst2|out_key ; -0.538 ; -9.002        ;
+; botao                   ; 0.313  ; 0.000         ;
 +-------------------------+--------+---------------+
 
 
@@ -250,8 +271,9 @@ No synchronizer chains to report.
 +-------------------------+--------+---------------+
 ; Clock                   ; Slack  ; End Point TNS ;
 +-------------------------+--------+---------------+
-; CLOCK_PLACA             ; -2.540 ; -9.436        ;
-; debouncer:inst2|out_key ; -1.261 ; -10.819       ;
+; CLOCK_PLACA             ; -2.561 ; -11.185       ;
+; botao                   ; -2.313 ; -4.578        ;
+; debouncer:inst2|out_key ; -2.037 ; -20.800       ;
 +-------------------------+--------+---------------+
 
 
@@ -260,21 +282,28 @@ No synchronizer chains to report.
 +-------------------------+-------+---------------+
 ; Clock                   ; Slack ; End Point TNS ;
 +-------------------------+-------+---------------+
-; CLOCK_PLACA             ; 0.199 ; 0.000         ;
-; debouncer:inst2|out_key ; 0.367 ; 0.000         ;
+; CLOCK_PLACA             ; 0.197 ; 0.000         ;
+; debouncer:inst2|out_key ; 0.431 ; 0.000         ;
+; botao                   ; 0.712 ; 0.000         ;
 +-------------------------+-------+---------------+
 
 
-------------------------------------------
-; Fast 1100mV 85C Model Recovery Summary ;
-------------------------------------------
-No paths to report.
++--------------------------------------------------+
+; Fast 1100mV 85C Model Recovery Summary           ;
++-------------------------+--------+---------------+
+; Clock                   ; Slack  ; End Point TNS ;
++-------------------------+--------+---------------+
+; debouncer:inst2|out_key ; -1.732 ; -15.808       ;
++-------------------------+--------+---------------+
 
 
------------------------------------------
-; Fast 1100mV 85C Model Removal Summary ;
------------------------------------------
-No paths to report.
++-------------------------------------------------+
+; Fast 1100mV 85C Model Removal Summary           ;
++-------------------------+-------+---------------+
+; Clock                   ; Slack ; End Point TNS ;
++-------------------------+-------+---------------+
+; debouncer:inst2|out_key ; 0.621 ; 0.000         ;
++-------------------------+-------+---------------+
 
 
 +---------------------------------------------------+
@@ -282,8 +311,9 @@ No paths to report.
 +-------------------------+--------+----------------+
 ; Clock                   ; Slack  ; End Point TNS  ;
 +-------------------------+--------+----------------+
-; CLOCK_PLACA             ; -0.356 ; -2.013         ;
-; debouncer:inst2|out_key ; -0.018 ; -0.139         ;
+; CLOCK_PLACA             ; -0.358 ; -2.026         ;
+; botao                   ; -0.007 ; -0.007         ;
+; debouncer:inst2|out_key ; 0.016  ; 0.000          ;
 +-------------------------+--------+----------------+
 
 
@@ -298,8 +328,9 @@ No synchronizer chains to report.
 +-------------------------+--------+---------------+
 ; Clock                   ; Slack  ; End Point TNS ;
 +-------------------------+--------+---------------+
-; CLOCK_PLACA             ; -2.188 ; -7.220        ;
-; debouncer:inst2|out_key ; -1.094 ; -9.764        ;
+; CLOCK_PLACA             ; -2.205 ; -8.549        ;
+; debouncer:inst2|out_key ; -1.848 ; -18.860       ;
+; botao                   ; -1.816 ; -3.566        ;
 +-------------------------+--------+---------------+
 
 
@@ -308,21 +339,28 @@ No synchronizer chains to report.
 +-------------------------+-------+---------------+
 ; Clock                   ; Slack ; End Point TNS ;
 +-------------------------+-------+---------------+
-; CLOCK_PLACA             ; 0.190 ; 0.000         ;
-; debouncer:inst2|out_key ; 0.339 ; 0.000         ;
+; CLOCK_PLACA             ; 0.189 ; 0.000         ;
+; debouncer:inst2|out_key ; 0.411 ; 0.000         ;
+; botao                   ; 0.455 ; 0.000         ;
 +-------------------------+-------+---------------+
 
 
------------------------------------------
-; Fast 1100mV 0C Model Recovery Summary ;
------------------------------------------
-No paths to report.
++--------------------------------------------------+
+; Fast 1100mV 0C Model Recovery Summary            ;
++-------------------------+--------+---------------+
+; Clock                   ; Slack  ; End Point TNS ;
++-------------------------+--------+---------------+
+; debouncer:inst2|out_key ; -1.699 ; -15.698       ;
++-------------------------+--------+---------------+
 
 
-----------------------------------------
-; Fast 1100mV 0C Model Removal Summary ;
-----------------------------------------
-No paths to report.
++-------------------------------------------------+
+; Fast 1100mV 0C Model Removal Summary            ;
++-------------------------+-------+---------------+
+; Clock                   ; Slack ; End Point TNS ;
++-------------------------+-------+---------------+
+; debouncer:inst2|out_key ; 0.644 ; 0.000         ;
++-------------------------+-------+---------------+
 
 
 +--------------------------------------------------+
@@ -330,8 +368,9 @@ No paths to report.
 +-------------------------+--------+---------------+
 ; Clock                   ; Slack  ; End Point TNS ;
 +-------------------------+--------+---------------+
-; CLOCK_PLACA             ; -0.354 ; -2.033        ;
-; debouncer:inst2|out_key ; 0.014  ; 0.000         ;
+; CLOCK_PLACA             ; -0.349 ; -2.004        ;
+; botao                   ; 0.002  ; 0.000         ;
+; debouncer:inst2|out_key ; 0.047  ; 0.000         ;
 +-------------------------+--------+---------------+
 
 
@@ -346,12 +385,14 @@ No synchronizer chains to report.
 +--------------------------+---------+-------+----------+---------+---------------------+
 ; Clock                    ; Setup   ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
 +--------------------------+---------+-------+----------+---------+---------------------+
-; Worst-case Slack         ; -4.650  ; 0.190 ; N/A      ; N/A     ; -0.538              ;
-;  CLOCK_PLACA             ; -4.650  ; 0.190 ; N/A      ; N/A     ; -0.538              ;
-;  debouncer:inst2|out_key ; -3.381  ; 0.339 ; N/A      ; N/A     ; -0.538              ;
-; Design-wide TNS          ; -66.302 ; 0.0   ; 0.0      ; 0.0     ; -23.055             ;
-;  CLOCK_PLACA             ; -35.690 ; 0.000 ; N/A      ; N/A     ; -14.219             ;
-;  debouncer:inst2|out_key ; -30.612 ; 0.000 ; N/A      ; N/A     ; -8.862              ;
+; Worst-case Slack         ; -5.108  ; 0.189 ; -2.961   ; 0.621   ; -0.538              ;
+;  CLOCK_PLACA             ; -4.801  ; 0.189 ; N/A      ; N/A     ; -0.538              ;
+;  botao                   ; -4.313  ; 0.455 ; N/A      ; N/A     ; -0.007              ;
+;  debouncer:inst2|out_key ; -5.108  ; 0.411 ; -2.961   ; 0.621   ; -0.538              ;
+; Design-wide TNS          ; -96.512 ; 0.0   ; -27.768  ; 0.0     ; -23.341             ;
+;  CLOCK_PLACA             ; -38.612 ; 0.000 ; N/A      ; N/A     ; -14.233             ;
+;  botao                   ; -8.493  ; 0.000 ; N/A      ; N/A     ; -0.007              ;
+;  debouncer:inst2|out_key ; -50.443 ; 0.000 ; -27.768  ; 0.000   ; -9.147              ;
 +--------------------------+---------+-------+----------+---------+---------------------+
 
 
@@ -384,11 +425,11 @@ No synchronizer chains to report.
 +-------------+--------------+-----------------+-----------------+
 ; Pin         ; I/O Standard ; 10-90 Rise Time ; 90-10 Fall Time ;
 +-------------+--------------+-----------------+-----------------+
-; moeda[2]    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
-; moeda[1]    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
-; moeda[3]    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
-; moeda[0]    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
 ; reset       ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; moeda[1]    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; moeda[0]    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; moeda[3]    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; moeda[2]    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
 ; botao       ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
 ; CLOCK_PINO  ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
 ; CLOCK_PLACA ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
@@ -496,9 +537,11 @@ No synchronizer chains to report.
 +-------------------------+-------------------------+----------+----------+----------+----------+
 ; From Clock              ; To Clock                ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +-------------------------+-------------------------+----------+----------+----------+----------+
+; debouncer:inst2|out_key ; botao                   ; 0        ; 0        ; 2        ; 0        ;
 ; CLOCK_PLACA             ; CLOCK_PLACA             ; 442      ; 0        ; 0        ; 0        ;
 ; debouncer:inst2|out_key ; CLOCK_PLACA             ; 1        ; 1        ; 0        ; 0        ;
-; debouncer:inst2|out_key ; debouncer:inst2|out_key ; 273      ; 0        ; 0        ; 0        ;
+; botao                   ; debouncer:inst2|out_key ; 3        ; 5        ; 0        ; 0        ;
+; debouncer:inst2|out_key ; debouncer:inst2|out_key ; 3054     ; 0        ; 0        ; 0        ;
 +-------------------------+-------------------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -508,10 +551,32 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +-------------------------+-------------------------+----------+----------+----------+----------+
 ; From Clock              ; To Clock                ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +-------------------------+-------------------------+----------+----------+----------+----------+
+; debouncer:inst2|out_key ; botao                   ; 0        ; 0        ; 2        ; 0        ;
 ; CLOCK_PLACA             ; CLOCK_PLACA             ; 442      ; 0        ; 0        ; 0        ;
 ; debouncer:inst2|out_key ; CLOCK_PLACA             ; 1        ; 1        ; 0        ; 0        ;
-; debouncer:inst2|out_key ; debouncer:inst2|out_key ; 273      ; 0        ; 0        ; 0        ;
+; botao                   ; debouncer:inst2|out_key ; 3        ; 5        ; 0        ; 0        ;
+; debouncer:inst2|out_key ; debouncer:inst2|out_key ; 3054     ; 0        ; 0        ; 0        ;
 +-------------------------+-------------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++----------------------------------------------------------------------------------+
+; Recovery Transfers                                                               ;
++------------+-------------------------+----------+----------+----------+----------+
+; From Clock ; To Clock                ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+-------------------------+----------+----------+----------+----------+
+; botao      ; debouncer:inst2|out_key ; 10       ; 10       ; 0        ; 0        ;
++------------+-------------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++----------------------------------------------------------------------------------+
+; Removal Transfers                                                                ;
++------------+-------------------------+----------+----------+----------+----------+
+; From Clock ; To Clock                ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+-------------------------+----------+----------+----------+----------+
+; botao      ; debouncer:inst2|out_key ; 10       ; 10       ; 0        ; 0        ;
++------------+-------------------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
 
@@ -535,9 +600,9 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
 ; Unconstrained Input Ports       ; 7     ; 7    ;
-; Unconstrained Input Port Paths  ; 74    ; 74   ;
+; Unconstrained Input Port Paths  ; 75    ; 75   ;
 ; Unconstrained Output Ports      ; 16    ; 16   ;
-; Unconstrained Output Port Paths ; 58    ; 58   ;
+; Unconstrained Output Port Paths ; 66    ; 66   ;
 +---------------------------------+-------+------+
 
 
@@ -547,6 +612,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; Target                  ; Clock                   ; Type ; Status      ;
 +-------------------------+-------------------------+------+-------------+
 ; CLOCK_PLACA             ; CLOCK_PLACA             ; Base ; Constrained ;
+; botao                   ; botao                   ; Base ; Constrained ;
 ; debouncer:inst2|out_key ; debouncer:inst2|out_key ; Base ; Constrained ;
 +-------------------------+-------------------------+------+-------------+
 
@@ -635,114 +701,152 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
-    Info: Processing started: Tue Nov 22 18:44:15 2022
+    Info: Processing started: Wed Nov 23 16:59:36 2022
 Info: Command: quartus_sta MaquinaRefri -c MaquinaRefri
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
+Warning (335093): The Timing Analyzer is analyzing 2 combinational loops as latches. For more details, run the Check Timing command in the Timing Analyzer or view the "User-Specified and Inferred Latches" table in the Analysis & Synthesis report.
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'MaquinaRefri.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
 Info (332105): Deriving Clocks
     Info (332105): create_clock -period 1.000 -name debouncer:inst2|out_key debouncer:inst2|out_key
     Info (332105): create_clock -period 1.000 -name CLOCK_PLACA CLOCK_PLACA
+    Info (332105): create_clock -period 1.000 -name botao botao
 Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1100mV 85C Model
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -4.474
+Info (332146): Worst-case setup slack is -4.968
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -4.474             -35.578 CLOCK_PLACA 
-    Info (332119):    -3.172             -29.405 debouncer:inst2|out_key 
-Info (332146): Worst-case hold slack is 0.429
+    Info (332119):    -4.968             -49.407 debouncer:inst2|out_key 
+    Info (332119):    -4.644             -38.612 CLOCK_PLACA 
+    Info (332119):    -4.313              -8.493 botao 
+Info (332146): Worst-case hold slack is 0.427
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.429               0.000 CLOCK_PLACA 
-    Info (332119):     0.926               0.000 debouncer:inst2|out_key 
-Info (332140): No Recovery paths to report
-Info (332140): No Removal paths to report
+    Info (332119):     0.427               0.000 CLOCK_PLACA 
+    Info (332119):     1.068               0.000 debouncer:inst2|out_key 
+    Info (332119):     1.315               0.000 botao 
+Info (332146): Worst-case recovery slack is -2.961
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.961             -27.725 debouncer:inst2|out_key 
+Info (332146): Worst-case removal slack is 1.795
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     1.795               0.000 debouncer:inst2|out_key 
 Info (332146): Worst-case minimum pulse width slack is -0.538
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.538             -14.154 CLOCK_PLACA 
-    Info (332119):    -0.538              -8.862 debouncer:inst2|out_key 
+    Info (332119):    -0.538             -14.194 CLOCK_PLACA 
+    Info (332119):    -0.538              -9.147 debouncer:inst2|out_key 
+    Info (332119):     0.314               0.000 botao 
 Info: Analyzing Slow 1100mV 0C Model
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -4.650
+Info (332146): Worst-case setup slack is -5.108
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -4.650             -35.690 CLOCK_PLACA 
-    Info (332119):    -3.381             -30.612 debouncer:inst2|out_key 
-Info (332146): Worst-case hold slack is 0.441
+    Info (332119):    -5.108             -50.443 debouncer:inst2|out_key 
+    Info (332119):    -4.801             -37.337 CLOCK_PLACA 
+    Info (332119):    -4.090              -7.976 botao 
+Info (332146): Worst-case hold slack is 0.437
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.441               0.000 CLOCK_PLACA 
-    Info (332119):     0.947               0.000 debouncer:inst2|out_key 
-Info (332140): No Recovery paths to report
-Info (332140): No Removal paths to report
+    Info (332119):     0.437               0.000 CLOCK_PLACA 
+    Info (332119):     0.970               0.000 botao 
+    Info (332119):     1.060               0.000 debouncer:inst2|out_key 
+Info (332146): Worst-case recovery slack is -2.950
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.950             -27.768 debouncer:inst2|out_key 
+Info (332146): Worst-case removal slack is 1.802
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     1.802               0.000 debouncer:inst2|out_key 
 Info (332146): Worst-case minimum pulse width slack is -0.538
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.538             -14.219 CLOCK_PLACA 
-    Info (332119):    -0.538              -8.836 debouncer:inst2|out_key 
+    Info (332119):    -0.538             -14.233 CLOCK_PLACA 
+    Info (332119):    -0.538              -9.002 debouncer:inst2|out_key 
+    Info (332119):     0.313               0.000 botao 
 Info: Analyzing Fast 1100mV 85C Model
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -2.540
+Info (332146): Worst-case setup slack is -2.561
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -2.540              -9.436 CLOCK_PLACA 
-    Info (332119):    -1.261             -10.819 debouncer:inst2|out_key 
-Info (332146): Worst-case hold slack is 0.199
+    Info (332119):    -2.561             -11.185 CLOCK_PLACA 
+    Info (332119):    -2.313              -4.578 botao 
+    Info (332119):    -2.037             -20.800 debouncer:inst2|out_key 
+Info (332146): Worst-case hold slack is 0.197
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.199               0.000 CLOCK_PLACA 
-    Info (332119):     0.367               0.000 debouncer:inst2|out_key 
-Info (332140): No Recovery paths to report
-Info (332140): No Removal paths to report
-Info (332146): Worst-case minimum pulse width slack is -0.356
+    Info (332119):     0.197               0.000 CLOCK_PLACA 
+    Info (332119):     0.431               0.000 debouncer:inst2|out_key 
+    Info (332119):     0.712               0.000 botao 
+Info (332146): Worst-case recovery slack is -1.732
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.356              -2.013 CLOCK_PLACA 
-    Info (332119):    -0.018              -0.139 debouncer:inst2|out_key 
+    Info (332119):    -1.732             -15.808 debouncer:inst2|out_key 
+Info (332146): Worst-case removal slack is 0.621
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.621               0.000 debouncer:inst2|out_key 
+Info (332146): Worst-case minimum pulse width slack is -0.358
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -0.358              -2.026 CLOCK_PLACA 
+    Info (332119):    -0.007              -0.007 botao 
+    Info (332119):     0.016               0.000 debouncer:inst2|out_key 
 Info: Analyzing Fast 1100mV 0C Model
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -2.188
+Info (332146): Worst-case setup slack is -2.205
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -2.188              -7.220 CLOCK_PLACA 
-    Info (332119):    -1.094              -9.764 debouncer:inst2|out_key 
-Info (332146): Worst-case hold slack is 0.190
+    Info (332119):    -2.205              -8.549 CLOCK_PLACA 
+    Info (332119):    -1.848             -18.860 debouncer:inst2|out_key 
+    Info (332119):    -1.816              -3.566 botao 
+Info (332146): Worst-case hold slack is 0.189
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.190               0.000 CLOCK_PLACA 
-    Info (332119):     0.339               0.000 debouncer:inst2|out_key 
-Info (332140): No Recovery paths to report
-Info (332140): No Removal paths to report
-Info (332146): Worst-case minimum pulse width slack is -0.354
+    Info (332119):     0.189               0.000 CLOCK_PLACA 
+    Info (332119):     0.411               0.000 debouncer:inst2|out_key 
+    Info (332119):     0.455               0.000 botao 
+Info (332146): Worst-case recovery slack is -1.699
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.354              -2.033 CLOCK_PLACA 
-    Info (332119):     0.014               0.000 debouncer:inst2|out_key 
+    Info (332119):    -1.699             -15.698 debouncer:inst2|out_key 
+Info (332146): Worst-case removal slack is 0.644
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.644               0.000 debouncer:inst2|out_key 
+Info (332146): Worst-case minimum pulse width slack is -0.349
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -0.349              -2.004 CLOCK_PLACA 
+    Info (332119):     0.002               0.000 botao 
+    Info (332119):     0.047               0.000 debouncer:inst2|out_key 
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
-Info: Quartus Prime Timing Analyzer was successful. 0 errors, 6 warnings
-    Info: Peak virtual memory: 5081 megabytes
-    Info: Processing ended: Tue Nov 22 18:44:20 2022
-    Info: Elapsed time: 00:00:05
+Info: Quartus Prime Timing Analyzer was successful. 0 errors, 7 warnings
+    Info: Peak virtual memory: 5076 megabytes
+    Info: Processing ended: Wed Nov 23 16:59:40 2022
+    Info: Elapsed time: 00:00:04
     Info: Total CPU time (on all processors): 00:00:05
 
 

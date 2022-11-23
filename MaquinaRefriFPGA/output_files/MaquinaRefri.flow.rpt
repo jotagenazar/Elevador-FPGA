@@ -1,5 +1,5 @@
 Flow report for MaquinaRefri
-Tue Nov 22 18:44:20 2022
+Wed Nov 23 16:59:40 2022
 Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 
 
@@ -41,15 +41,15 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Tue Nov 22 18:44:14 2022       ;
+; Flow Status                     ; Successful - Wed Nov 23 16:59:35 2022       ;
 ; Quartus Prime Version           ; 21.1.0 Build 842 10/21/2021 SJ Lite Edition ;
 ; Revision Name                   ; MaquinaRefri                                ;
 ; Top-level Entity Name           ; MaquinaRefri                                ;
 ; Family                          ; Cyclone V                                   ;
 ; Device                          ; 5CEBA4F23C7                                 ;
 ; Timing Models                   ; Final                                       ;
-; Logic utilization (in ALMs)     ; 58 / 18,480 ( < 1 % )                       ;
-; Total registers                 ; 28                                          ;
+; Logic utilization (in ALMs)     ; 92 / 18,480 ( < 1 % )                       ;
+; Total registers                 ; 29                                          ;
 ; Total pins                      ; 24 / 224 ( 11 % )                           ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0 / 3,153,920 ( 0 % )                       ;
@@ -68,7 +68,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/22/2022 18:43:42 ;
+; Start date & time ; 11/23/2022 16:59:02 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; MaquinaRefri        ;
 +-------------------+---------------------+
@@ -79,7 +79,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 123719794343906.166915342209448        ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 123719794343906.166923354213348        ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
@@ -94,11 +94,11 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:09     ; 1.0                     ; 4887 MB             ; 00:00:18                           ;
-; Fitter               ; 00:00:18     ; 1.0                     ; 6233 MB             ; 00:00:28                           ;
-; Assembler            ; 00:00:04     ; 1.0                     ; 4856 MB             ; 00:00:03                           ;
-; Timing Analyzer      ; 00:00:05     ; 1.1                     ; 5081 MB             ; 00:00:05                           ;
-; Total                ; 00:00:36     ; --                      ; --                  ; 00:00:54                           ;
+; Analysis & Synthesis ; 00:00:09     ; 1.0                     ; 4882 MB             ; 00:00:18                           ;
+; Fitter               ; 00:00:19     ; 1.0                     ; 6234 MB             ; 00:00:31                           ;
+; Assembler            ; 00:00:03     ; 1.0                     ; 4859 MB             ; 00:00:03                           ;
+; Timing Analyzer      ; 00:00:04     ; 1.1                     ; 5076 MB             ; 00:00:05                           ;
+; Total                ; 00:00:35     ; --                      ; --                  ; 00:00:57                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

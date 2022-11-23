@@ -2,100 +2,180 @@
 Timing Analyzer Summary
 ------------------------------------------------------------
 
-Type  : Slow 1100mV 85C Model Setup 'CLOCK_PLACA'
-Slack : -4.474
-TNS   : -35.578
-
 Type  : Slow 1100mV 85C Model Setup 'debouncer:inst2|out_key'
-Slack : -3.172
-TNS   : -29.405
+Slack : -4.968
+TNS   : -49.407
+
+Type  : Slow 1100mV 85C Model Setup 'CLOCK_PLACA'
+Slack : -4.644
+TNS   : -38.612
+
+Type  : Slow 1100mV 85C Model Setup 'botao'
+Slack : -4.313
+TNS   : -8.493
 
 Type  : Slow 1100mV 85C Model Hold 'CLOCK_PLACA'
-Slack : 0.429
+Slack : 0.427
 TNS   : 0.000
 
 Type  : Slow 1100mV 85C Model Hold 'debouncer:inst2|out_key'
-Slack : 0.926
+Slack : 1.068
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'botao'
+Slack : 1.315
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Recovery 'debouncer:inst2|out_key'
+Slack : -2.961
+TNS   : -27.725
+
+Type  : Slow 1100mV 85C Model Removal 'debouncer:inst2|out_key'
+Slack : 1.795
 TNS   : 0.000
 
 Type  : Slow 1100mV 85C Model Minimum Pulse Width 'CLOCK_PLACA'
 Slack : -0.538
-TNS   : -14.154
+TNS   : -14.194
 
 Type  : Slow 1100mV 85C Model Minimum Pulse Width 'debouncer:inst2|out_key'
 Slack : -0.538
-TNS   : -8.862
+TNS   : -9.147
 
-Type  : Slow 1100mV 0C Model Setup 'CLOCK_PLACA'
-Slack : -4.650
-TNS   : -35.690
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'botao'
+Slack : 0.314
+TNS   : 0.000
 
 Type  : Slow 1100mV 0C Model Setup 'debouncer:inst2|out_key'
-Slack : -3.381
-TNS   : -30.612
+Slack : -5.108
+TNS   : -50.443
+
+Type  : Slow 1100mV 0C Model Setup 'CLOCK_PLACA'
+Slack : -4.801
+TNS   : -37.337
+
+Type  : Slow 1100mV 0C Model Setup 'botao'
+Slack : -4.090
+TNS   : -7.976
 
 Type  : Slow 1100mV 0C Model Hold 'CLOCK_PLACA'
-Slack : 0.441
+Slack : 0.437
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'botao'
+Slack : 0.970
 TNS   : 0.000
 
 Type  : Slow 1100mV 0C Model Hold 'debouncer:inst2|out_key'
-Slack : 0.947
+Slack : 1.060
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Recovery 'debouncer:inst2|out_key'
+Slack : -2.950
+TNS   : -27.768
+
+Type  : Slow 1100mV 0C Model Removal 'debouncer:inst2|out_key'
+Slack : 1.802
 TNS   : 0.000
 
 Type  : Slow 1100mV 0C Model Minimum Pulse Width 'CLOCK_PLACA'
 Slack : -0.538
-TNS   : -14.219
+TNS   : -14.233
 
 Type  : Slow 1100mV 0C Model Minimum Pulse Width 'debouncer:inst2|out_key'
 Slack : -0.538
-TNS   : -8.836
+TNS   : -9.002
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'botao'
+Slack : 0.313
+TNS   : 0.000
 
 Type  : Fast 1100mV 85C Model Setup 'CLOCK_PLACA'
-Slack : -2.540
-TNS   : -9.436
+Slack : -2.561
+TNS   : -11.185
+
+Type  : Fast 1100mV 85C Model Setup 'botao'
+Slack : -2.313
+TNS   : -4.578
 
 Type  : Fast 1100mV 85C Model Setup 'debouncer:inst2|out_key'
-Slack : -1.261
-TNS   : -10.819
+Slack : -2.037
+TNS   : -20.800
 
 Type  : Fast 1100mV 85C Model Hold 'CLOCK_PLACA'
-Slack : 0.199
+Slack : 0.197
 TNS   : 0.000
 
 Type  : Fast 1100mV 85C Model Hold 'debouncer:inst2|out_key'
-Slack : 0.367
+Slack : 0.431
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'botao'
+Slack : 0.712
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Recovery 'debouncer:inst2|out_key'
+Slack : -1.732
+TNS   : -15.808
+
+Type  : Fast 1100mV 85C Model Removal 'debouncer:inst2|out_key'
+Slack : 0.621
 TNS   : 0.000
 
 Type  : Fast 1100mV 85C Model Minimum Pulse Width 'CLOCK_PLACA'
-Slack : -0.356
-TNS   : -2.013
+Slack : -0.358
+TNS   : -2.026
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'botao'
+Slack : -0.007
+TNS   : -0.007
 
 Type  : Fast 1100mV 85C Model Minimum Pulse Width 'debouncer:inst2|out_key'
-Slack : -0.018
-TNS   : -0.139
+Slack : 0.016
+TNS   : 0.000
 
 Type  : Fast 1100mV 0C Model Setup 'CLOCK_PLACA'
-Slack : -2.188
-TNS   : -7.220
+Slack : -2.205
+TNS   : -8.549
 
 Type  : Fast 1100mV 0C Model Setup 'debouncer:inst2|out_key'
-Slack : -1.094
-TNS   : -9.764
+Slack : -1.848
+TNS   : -18.860
+
+Type  : Fast 1100mV 0C Model Setup 'botao'
+Slack : -1.816
+TNS   : -3.566
 
 Type  : Fast 1100mV 0C Model Hold 'CLOCK_PLACA'
-Slack : 0.190
+Slack : 0.189
 TNS   : 0.000
 
 Type  : Fast 1100mV 0C Model Hold 'debouncer:inst2|out_key'
-Slack : 0.339
+Slack : 0.411
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'botao'
+Slack : 0.455
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Recovery 'debouncer:inst2|out_key'
+Slack : -1.699
+TNS   : -15.698
+
+Type  : Fast 1100mV 0C Model Removal 'debouncer:inst2|out_key'
+Slack : 0.644
 TNS   : 0.000
 
 Type  : Fast 1100mV 0C Model Minimum Pulse Width 'CLOCK_PLACA'
-Slack : -0.354
-TNS   : -2.033
+Slack : -0.349
+TNS   : -2.004
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'botao'
+Slack : 0.002
+TNS   : 0.000
 
 Type  : Fast 1100mV 0C Model Minimum Pulse Width 'debouncer:inst2|out_key'
-Slack : 0.014
+Slack : 0.047
 TNS   : 0.000
 
 ------------------------------------------------------------

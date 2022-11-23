@@ -3,8 +3,8 @@ JedecChain;
 	FileRevision(JESD32A);
 	DefaultMfr(6E);
 
-	P ActionCode(Cfg)
-		Device PartName(5CEBA4F23) Path("C:/Users/11815722/Desktop/MaquinaRefriFPGA/output_files/") File("MaquinaRefri.sof") MfrSpec(OpMask(1));
+	P ActionCode(Ign)
+		Device PartName(5CEBA4F23) MfrSpec(OpMask(0) FullPath("C:/Users/11815722/Desktop/MaquinaRefriFPGA/output_files/MaquinaRefri.sof"));
 
 ChainEnd;
 

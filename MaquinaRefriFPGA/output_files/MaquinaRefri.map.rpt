@@ -1,5 +1,5 @@
 Analysis & Synthesis report for MaquinaRefri
-Tue Nov 22 18:43:51 2022
+Wed Nov 23 16:59:11 2022
 Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 
 
@@ -45,13 +45,13 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Tue Nov 22 18:43:50 2022       ;
+; Analysis & Synthesis Status     ; Successful - Wed Nov 23 16:59:11 2022       ;
 ; Quartus Prime Version           ; 21.1.0 Build 842 10/21/2021 SJ Lite Edition ;
 ; Revision Name                   ; MaquinaRefri                                ;
 ; Top-level Entity Name           ; MaquinaRefri                                ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 28                                          ;
+; Total registers                 ; 29                                          ;
 ; Total pins                      ; 24                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
@@ -181,31 +181,31 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------+-----------------+------------------------------------------+------------------------------------------------------------------------+---------+
 
 
-+----------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                          ;
-+---------------------------------------------+------------------------+
-; Resource                                    ; Usage                  ;
-+---------------------------------------------+------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 55                     ;
-;                                             ;                        ;
-; Combinational ALUT usage for logic          ; 91                     ;
-;     -- 7 input functions                    ; 0                      ;
-;     -- 6 input functions                    ; 18                     ;
-;     -- 5 input functions                    ; 10                     ;
-;     -- 4 input functions                    ; 21                     ;
-;     -- <=3 input functions                  ; 42                     ;
-;                                             ;                        ;
-; Dedicated logic registers                   ; 28                     ;
-;                                             ;                        ;
-; I/O pins                                    ; 24                     ;
-;                                             ;                        ;
-; Total DSP Blocks                            ; 0                      ;
-;                                             ;                        ;
-; Maximum fan-out node                        ; mealy:inst|montante[2] ;
-; Maximum fan-out                             ; 19                     ;
-; Total fan-out                               ; 479                    ;
-; Average fan-out                             ; 2.87                   ;
-+---------------------------------------------+------------------------+
++-----------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                     ;
++---------------------------------------------+-------------------+
+; Resource                                    ; Usage             ;
++---------------------------------------------+-------------------+
+; Estimate of Logic utilization (ALMs needed) ; 97                ;
+;                                             ;                   ;
+; Combinational ALUT usage for logic          ; 145               ;
+;     -- 7 input functions                    ; 2                 ;
+;     -- 6 input functions                    ; 46                ;
+;     -- 5 input functions                    ; 16                ;
+;     -- 4 input functions                    ; 28                ;
+;     -- <=3 input functions                  ; 53                ;
+;                                             ;                   ;
+; Dedicated logic registers                   ; 29                ;
+;                                             ;                   ;
+; I/O pins                                    ; 24                ;
+;                                             ;                   ;
+; Total DSP Blocks                            ; 0                 ;
+;                                             ;                   ;
+; Maximum fan-out node                        ; CLOCK_PLACA~input ;
+; Maximum fan-out                             ; 18                ;
+; Total fan-out                               ; 730               ;
+; Average fan-out                             ; 3.29              ;
++---------------------------------------------+-------------------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -213,11 +213,11 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------+-------------------------+--------------+
 ; Compilation Hierarchy Node         ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                         ; Entity Name             ; Library Name ;
 +------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------+-------------------------+--------------+
-; |MaquinaRefri                      ; 91 (0)              ; 28 (0)                    ; 0                 ; 0          ; 24   ; 0            ; |MaquinaRefri                               ; MaquinaRefri            ; work         ;
+; |MaquinaRefri                      ; 145 (0)             ; 29 (0)                    ; 0                 ; 0          ; 24   ; 0            ; |MaquinaRefri                               ; MaquinaRefri            ; work         ;
 ;    |debouncer:inst2|               ; 22 (22)             ; 18 (18)                   ; 0                 ; 0          ; 0    ; 0            ; |MaquinaRefri|debouncer:inst2               ; debouncer               ; work         ;
 ;    |display-7segment-binary:inst4| ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |MaquinaRefri|display-7segment-binary:inst4 ; display-7segment-binary ; work         ;
-;    |display-7segment-binary:inst5| ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |MaquinaRefri|display-7segment-binary:inst5 ; display-7segment-binary ; work         ;
-;    |mealy:inst|                    ; 55 (55)             ; 10 (10)                   ; 0                 ; 0          ; 0    ; 0            ; |MaquinaRefri|mealy:inst                    ; mealy                   ; work         ;
+;    |display-7segment-binary:inst5| ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |MaquinaRefri|display-7segment-binary:inst5 ; display-7segment-binary ; work         ;
+;    |mealy:inst|                    ; 108 (108)           ; 11 (11)                   ; 0                 ; 0          ; 0    ; 0            ; |MaquinaRefri|mealy:inst                    ; mealy                   ; work         ;
 +------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------+-------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -227,10 +227,10 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 28    ;
+; Total registers                              ; 29    ;
 ; Number of registers using Synchronous Clear  ; 16    ;
-; Number of registers using Synchronous Load   ; 6     ;
-; Number of registers using Asynchronous Clear ; 10    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 11    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 22    ;
 ; Number of registers using Preset             ; 0     ;
@@ -243,7 +243,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output               ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------+
 ; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |MaquinaRefri|debouncer:inst2|counter[0] ;
-; 10:1               ; 6 bits    ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |MaquinaRefri|mealy:inst|montante[6]     ;
+; 9:1                ; 6 bits    ; 36 LEs        ; 30 LEs               ; 6 LEs                  ; Yes        ; |MaquinaRefri|mealy:inst|montante[6]     ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------+
 
 
@@ -262,25 +262,28 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 28                          ;
-;     CLR               ; 4                           ;
-;     ENA CLR SLD       ; 6                           ;
+; arriav_ff             ; 29                          ;
+;     CLR               ; 5                           ;
+;     ENA CLR           ; 6                           ;
 ;     ENA SCLR          ; 16                          ;
 ;     plain             ; 2                           ;
-; arriav_lcell_comb     ; 105                         ;
-;     arith             ; 38                          ;
+; arriav_lcell_comb     ; 159                         ;
+;     arith             ; 41                          ;
+;         0 data inputs ; 3                           ;
 ;         1 data inputs ; 38                          ;
-;     normal            ; 67                          ;
+;     extend            ; 2                           ;
+;         7 data inputs ; 2                           ;
+;     normal            ; 116                         ;
 ;         1 data inputs ; 14                          ;
-;         2 data inputs ; 3                           ;
-;         3 data inputs ; 1                           ;
-;         4 data inputs ; 21                          ;
-;         5 data inputs ; 10                          ;
-;         6 data inputs ; 18                          ;
+;         2 data inputs ; 10                          ;
+;         3 data inputs ; 2                           ;
+;         4 data inputs ; 28                          ;
+;         5 data inputs ; 16                          ;
+;         6 data inputs ; 46                          ;
 ; boundary_port         ; 24                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 3.10                        ;
-; Average LUT depth     ; 2.14                        ;
+; Max LUT depth         ; 5.60                        ;
+; Average LUT depth     ; 3.58                        ;
 +-----------------------+-----------------------------+
 
 
@@ -299,7 +302,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
-    Info: Processing started: Tue Nov 22 18:43:41 2022
+    Info: Processing started: Wed Nov 23 16:59:01 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off MaquinaRefri -c MaquinaRefri
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -313,21 +316,25 @@ Warning (12125): Using design file display-7segment-binary.bdf, which is not spe
     Info (12023): Found entity 1: display-7segment-binary
 Info (12128): Elaborating entity "display-7segment-binary" for hierarchy "display-7segment-binary:inst4"
 Info (12128): Elaborating entity "mealy" for hierarchy "mealy:inst"
-Warning (10036): Verilog HDL or VHDL warning at mealy.vhd(13): object "estadoAtual" assigned a value but never read File: C:/Users/11815722/Desktop/MaquinaRefriFPGA/mealy.vhd Line: 13
+Warning (10492): VHDL Process Statement warning at mealy.vhd(24): signal "botao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/11815722/Desktop/MaquinaRefriFPGA/mealy.vhd Line: 24
+Warning (10492): VHDL Process Statement warning at mealy.vhd(27): signal "estadoAtual" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/11815722/Desktop/MaquinaRefriFPGA/mealy.vhd Line: 27
 Warning (12125): Using design file debouncer.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
     Info (12023): Found entity 1: debouncer File: C:/Users/11815722/Desktop/MaquinaRefriFPGA/debouncer.v Line: 28
 Info (12128): Elaborating entity "debouncer" for hierarchy "debouncer:inst2"
 Warning (10230): Verilog HDL assignment warning at debouncer.v(71): truncated value with size 32 to match size of target (16) File: C:/Users/11815722/Desktop/MaquinaRefriFPGA/debouncer.v Line: 71
+Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
+    Warning (13310): Register "mealy:inst|saida[1]" is converted into an equivalent circuit using register "mealy:inst|saida[1]~_emulated" and latch "mealy:inst|saida[1]~1" File: C:/Users/11815722/Desktop/MaquinaRefriFPGA/mealy.vhd Line: 19
+    Warning (13310): Register "mealy:inst|saida[0]" is converted into an equivalent circuit using register "mealy:inst|saida[0]~_emulated" and latch "mealy:inst|saida[0]~5" File: C:/Users/11815722/Desktop/MaquinaRefriFPGA/mealy.vhd Line: 19
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 116 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 171 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 8 input pins
     Info (21059): Implemented 16 output pins
-    Info (21061): Implemented 92 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 4887 megabytes
-    Info: Processing ended: Tue Nov 22 18:43:51 2022
+    Info (21061): Implemented 147 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 9 warnings
+    Info: Peak virtual memory: 4882 megabytes
+    Info: Processing ended: Wed Nov 23 16:59:11 2022
     Info: Elapsed time: 00:00:10
     Info: Total CPU time (on all processors): 00:00:18
 
